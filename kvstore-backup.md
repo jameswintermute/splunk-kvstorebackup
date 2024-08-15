@@ -16,13 +16,7 @@
 # Issue the KVstore search via CLI
 - This outputs the list to a file called 'kvlist-raw.txt'
 <pre>
-sudo -H -u splunk /opt/splunk/bin/splunk search '| rest /servicesNS/-/-/data/transforms/lookups splunk_server=local
-| search type=kvstore 
-| fields eai:appName, title, collection, id 
- | rename eaiappName as app 
- | search NOT app IN (Splunk_Security_Essentials, python_upgrade_readiness_app) 
- | eval list =(app+","+collection) 
- | fields list' > ~/kvlist-raw.txt
+sudo -H -u splunk /opt/splunk/bin/splunk search '| rest /servicesNS/-/-/data/transforms/lookups splunk_server=local | search type=kvstore  | fields eai:appName, title, collection, id  | rename eaiappName as app  | search NOT app IN (Splunk_Security_Essentials, python_upgrade_readiness_app)  | eval list =(app+","+collection)  | fields list' > ~/kvlist-raw.txt
 </pre>
 
 # Create a Netrc password file
