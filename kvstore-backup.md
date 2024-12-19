@@ -13,6 +13,13 @@
 - This is an automated scripting process
 - Also see: [Splunk KVstore endpoint](https://docs.splunk.com/Documentation/Splunk/latest/RESTREF/RESTkvstore#kvstore.2Fbackup.2Fcreate])
 
+# Status check
+- It is advisable to verify the KVstore version, it could be 4.x on Enterprise 9.3.x OR 7.x on 9.4.x
+<pre>
+splunk show kvstore-status --verbose
+</pre>
+
+
 # Issue the KVstore search via CLI
 - This outputs the list to a file called 'kvlist-raw.txt'
 <pre>
